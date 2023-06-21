@@ -7,14 +7,16 @@ class Square extends StatelessWidget {
       {super.key,
       required this.isWhite,
       required this.piece,
-      required this.isSelected, 
-      required this.onTap});
+      required this.isSelected,
+      required this.onTap,
+      required this.isValidMove});
   // : _isSelectable = isSelectable;
 
   final bool isWhite;
   final ChessPiece? piece;
   final bool isSelected;
   final void Function()? onTap;
+  final bool isValidMove;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,8 @@ class Square extends StatelessWidget {
     //if selectable, then the square is green
     if (isSelected) {
       squareColor = Colors.green;
+    } else if (isValidMove) {
+      squareColor = Colors.green[300];
     }
 
     // otherwise it will be white or black
@@ -37,8 +41,8 @@ class Square extends StatelessWidget {
             ? Image.asset(
                 piece!.imagePath,
                 color: piece!.isWhite
-                    ? const Color.fromARGB(255, 94, 10, 10)
-                    : Color.fromARGB(255, 86, 22, 177),
+                    ? Colors.white
+                    : Colors.black, // if the piece is black, then color it black
               )
             : null,
       ),
