@@ -1,7 +1,7 @@
 bool isWhite(int index){
-  int x = index ~/ 8; //this will give integer division means row
-          int y = index % 8; //this will give remainder means column
+  int row = index ~/ 8; //this will give integer division means row
+          int col = index % 8; //this will give remainder means column
 
-          bool isWhite = (x + y) % 2 == 0; //alternate colors for each sqaure
+          bool isWhite = (row + col) % 2 == 0; //alternate colors for each sqaure
           return isWhite;
 }
