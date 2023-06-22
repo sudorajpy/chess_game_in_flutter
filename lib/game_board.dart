@@ -160,13 +160,13 @@ class _GameBoardState extends State<GameBoard> {
     switch (piece.type) {
       case ChessPieceType.pawn:
         // pawn can move forword if the square is not occupied
-        if (isInBoard(row + direction, col) &&
-            board[row + direction][col] == null) {
-          candidateMoves.add([row + direction, col]);
+        if (isInBoard(row , col) &&
+            board[row ][col] == null) {
+          candidateMoves.add([row , col]);
         }
 
         //pawn can move 2 squares forword if they are at their initial stage
-       else if ((row == 1 && !piece.isWhite) || (row == 6 && piece.isWhite)) {
+       if ((row == 1 && !piece.isWhite) || (row == 6 && piece.isWhite)) {
           if (isInBoard(row + 2 * direction, col) &&
               board[row + 2 * direction][col] == null &&
               board[row + direction][col] == null) {
@@ -174,17 +174,21 @@ class _GameBoardState extends State<GameBoard> {
           }
         }
 
+        // write code for pawn to kill diagnolly
+        
+
+
         // pawn can kill diagnolly
-        else if (isInBoard(row + direction, col - 1) &&
-            board[row + direction][col - 1] != null &&
-            board[row + direction][col - 1]!.isWhite) {
-          candidateMoves.add([row + direction, col - 1]);
-        }
-        else if (isInBoard(row + direction, col + 1) &&
-            board[row + direction][col + 1] != null &&
-            board[row + direction][col + 1]!.isWhite) {
-          candidateMoves.add([row + direction, col - 1]);
-        }
+        // if (isInBoard(row + direction, col - 1) &&
+        //     board[row + direction][col - 1] != null &&
+        //     board[row + direction][col - 1]!.isWhite) {
+        //   candidateMoves.add([row + direction, col - 1]);
+        // }
+        // if (isInBoard(row + direction, col + 1) &&
+        //     board[row + direction][col + 1] != null &&
+        //     board[row + direction][col + 1]!.isWhite) {
+        //   candidateMoves.add([row + direction, col + 1]);
+        // }
 
         break;
       case ChessPieceType.rook:
@@ -224,7 +228,7 @@ class _GameBoardState extends State<GameBoard> {
               bool isValidMove = false;
               for (var position in validMoves) {
                 //compare row and colums
-                if (position[0] == row && position[1] == col) {
+                if (position[0] == row && position[0] == col) {
                   isValidMove = true;
                 }
               }
