@@ -174,21 +174,21 @@ class _GameBoardState extends State<GameBoard> {
           }
         }
 
-        // write code for pawn to kill diagnolly
+        
         
 
 
         // pawn can kill diagnolly
-        // if (isInBoard(row + direction, col - 1) &&
-        //     board[row + direction][col - 1] != null &&
-        //     board[row + direction][col - 1]!.isWhite) {
-        //   candidateMoves.add([row + direction, col - 1]);
-        // }
-        // if (isInBoard(row + direction, col + 1) &&
-        //     board[row + direction][col + 1] != null &&
-        //     board[row + direction][col + 1]!.isWhite) {
-        //   candidateMoves.add([row + direction, col + 1]);
-        // }
+        if (isInBoard(row + direction, col - 1) &&
+            board[row + direction][col - 1] != null &&
+            board[row + direction][col - 1]!.isWhite) {
+          candidateMoves.add([row + direction, col - 1]);
+        }
+        if (isInBoard(row + direction, col + 1) &&
+            board[row + direction][col + 1] != null &&
+            board[row + direction][col + 1]!.isWhite) {
+          candidateMoves.add([row + direction, col + 1]);
+        }
 
         break;
       case ChessPieceType.rook:
