@@ -41,8 +41,8 @@ class Square extends StatelessWidget {
             ? Image.asset(
                 piece!.imagePath,
                 color: piece!.isWhite
-                    ? Colors.black
-                    : Colors.white // if the piece is black, then color it black
+                    ? Colors.white
+                    : Colors.black // if the piece is black, then color it black
               )
             : null,
       ),
