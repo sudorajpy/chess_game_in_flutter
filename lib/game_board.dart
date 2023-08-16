@@ -173,11 +173,7 @@ class _GameBoardState extends State<GameBoard> {
             candidateMoves.add([row + 2 * direction, col]);
           }
         }
-
         
-        
-
-
         // pawn can kill diagnolly
         if (isInBoard(row + direction, col - 1) &&
             board[row + direction][col - 1] != null &&
