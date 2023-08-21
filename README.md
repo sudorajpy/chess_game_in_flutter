@@ -1,6 +1,6 @@
 # chess_game_in_flutter
 
-A new Flutter project.
+chess game project in Flutter
 
 ## Getting Started
 
